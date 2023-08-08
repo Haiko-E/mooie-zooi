@@ -1,0 +1,44 @@
+---
+import Button from './Button.astro';
+import Card from './Card.astro';
+---
+
+<footer>
+  <div
+    class='grid grid-cols-1 md:grid-cols-2 text-center md:text-left p-8 bg-brocant-300 text-amber-950 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
+  >
+    <div class='lg:px-6 py-6'>
+      <h2 class='mb-4 text-6xl font-bold'>
+        Contact <br />
+        <span class='text-2xl'>- Mooie Zooi</span>
+      </h2>
+      <address class='not-italic text-xl'>
+        <p>Kerkstraat 14</p>
+        <p>7064 BH Silvolde</p>
+        <a class='block' href='https://mooiezooi.nl'>www.mooiezooi.nl</a>
+        <a href='mailto:info@mooiezooi.nl'>info@mooiezooi.nl</a>
+        <p>Tel: 06-12888750</p>
+      </address>
+      <blockquote class='text-lg py-6'>
+        "Welcome in de wereld van herkeniing"
+      </blockquote>
+
+      <p class='text-xl pb-6'>laten we hergebruiken</p>
+
+      <button
+        type='button'
+        class='rounded border-2 border-amber-950 text-inherit px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10'
+        data-te-ripple-init
+        data-te-ripple-color='light'
+      >
+        Afspraak maken
+      </button>
+    </div>
+
+    <img
+      class='hidden w-full h-[500px] md:object-cover md:block'
+      src='https://images.unsplash.com/photo-1586769852044-692d6e3703f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'
+      alt='contact us'
+    />
+  </div>
+</footer>
