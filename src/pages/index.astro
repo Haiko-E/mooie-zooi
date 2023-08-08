@@ -1,65 +1,18 @@
 ---
-import Button from '../components/Button.astro';
+import About from '../components/About.astro';
+import Hero from '../components/Hero.astro';
+import Meesterlijk from '../components/Meesterlijk.astro';
+import Navbar from '../components/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title='Mooie Zooi Homepage'>
-  <div
-    class='max-w-[1280px] overflow-hidden relative w-full h-[700px] rounded-md bg-gradient-to-tr from-black to-slate-800'
-  >
-    <div class='flex justify-center h-full flex-col ml-8'>
-      <h1 class='p-4 font-header text-7xl text-white font-medium tracking-wide'>
-        MOOIE <br /><span class='pt-2 inline-block'>ZOOI</span>
-
-        <div class='h-[5px] w-[100px] mt-8 bg-orange-400'></div>
-      </h1>
-
-      <p class='text-xs tracking-wide mb-4 p-4 text-slate-400 w-[40%]'>
-        De naam Mooie Zooi is niet zo maar gekozen. Spullen die door menigeen worden
-        afgedankt, blijken voor andere weer een mooie herinnering aan vroeger. Om
-        zelf te genieten van deze buitenkansjes, struin ik rommelmarkten,
-        kringloopwinkels en brocante fairs af. Na verloop van tijd en aandacht, komen
-        deze leuke dingen in onze tuinkamer voor de verkoop. Ook de complete
-        tuinkamer is gemaakt van afgedankte materialen, maar een sieraad in de tuin.
-        Brocante, Retro en Vintage, het is allemaal te vinden bij Mooie Zooi.
-      </p>
-      <Button>
-        <span class='pr-4'>MAAK AFSPRAAK</span>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='24'
-          height='24'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          stroke-width='2'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          class='inline-block lucide lucide-move-right'
-          ><path d='M18 8L22 12L18 16'></path><path d='M2 12H22'></path></svg
-        >
-      </Button>
-    </div>
-
-    <div
-      class='absolute top-[20px] right-[-28%] bg-orange-50 w-[65%] rotate-[15deg] h-[150%] origin-top-right'
-    >
-    </div>
-    <div
-      class='origin-top-left absolute top-[-40px] left-[55%] bg-yellow-300 w-[120px] h-[120%] rotate-[15deg]'
-    >
-    </div>
-    <div
-      class='origin-top-left absolute top-[-40px] left-[55%] bg-orange-400 w-[90px] h-[120%] rotate-[15deg]'
-    >
-    </div>
-    <div
-      class='origin-top-left absolute top-[-40px] left-[55%] bg-rose-500 w-[60px] h-[120%] rotate-[15deg]'
-    >
-    </div>
-    <div
-      class='origin-top-left absolute top-[-40px] left-[54.9%] bg-pink-950 w-[30px] h-[120%] rotate-[15deg]'
-    >
-    </div>
+  <div class='max-w-[1280px] rounded-md'>
+    <Navbar />
+    <Hero />
+    <main>
+      <About />
+      <Meesterlijk />
+    </main>
   </div>
 </Layout>
