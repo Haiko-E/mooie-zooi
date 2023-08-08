@@ -1,9 +1,15 @@
+---
+import { getImage } from 'astro:assets';
+import header from '../assets/images/Header.jpg';
+const optimizedBackground = await getImage({ src: header, format: 'webp' });
+---
+
 <section
   class='relative overflow-hidden bg-cover bg-center bg-no-repeat p-12 text-center'
-  style="
-      background-image: url('./Header.jpg');
+  style=`
+      background-image: url('${optimizedBackground.src}');
       height: 600px;
-    "
+    `
 >
   <div
     class='absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed'

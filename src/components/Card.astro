@@ -1,9 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 const { imgSrc, title, description } = Astro.props;
 ---
 
 <div class=''>
-  <img class='h-[400px] w-full object-cover' src={imgSrc} alt={title} />
+  <Image
+    class='h-[400px] w-full object-cover'
+    src={imgSrc}
+    alt={title}
+    width={600}
+    height={800}
+  />
   <h3 class='pt-2 text-inherit text-lg font-bold'>{title}</h3>
   <p>
     {description}

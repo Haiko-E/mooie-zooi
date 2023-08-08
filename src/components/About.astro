@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import welcome from '../assets/images/Left-Welcome.jpg';
+---
+
 <!-- Section: Design Block -->
 <section id='over'>
   <div
@@ -5,9 +10,10 @@
   >
     <div class='flex flex-wrap'>
       <div class='w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-6/12'>
-        <img
-          src='./Left-Welcome.jpg'
-          alt='Trendy Pants and Shoes'
+        <Image
+          src={welcome}
+          format='avif'
+          alt='Robert'
           class='h-[400px] w-full object-cover lg:w-full lg:h-auto'
         />
       </div>
