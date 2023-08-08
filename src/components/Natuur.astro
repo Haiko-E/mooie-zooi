@@ -1,0 +1,35 @@
+---
+import Card from './Card.astro';
+---
+
+<section>
+  <div
+    class='block p-8 bg-yellow-900 text-amber-50 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
+  >
+    <div class=''>
+      <div class='lg:px-6 py-6'>
+        <h2 class='mb-4 text-2xl font-bold'>
+          Natuur <br />
+          <span class='text-xl'>- fotografie</span>
+        </h2>
+      </div>
+      <div class='grid gap-6 w-full grid-cols-1 md:grid-cols-3'>
+        <Card
+          title='Levendige bladeren'
+          description='Details en texturen'
+          imgSrc='https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'
+        />
+        <Card
+          title='Prachtige boomstronk'
+          description='geplaats op grasbuis'
+          imgSrc='https://images.unsplash.com/photo-1607681823901-03dd63bd0158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'
+        />
+        <Card
+          title='Harmonie in de natuur'
+          description='Biologische en aardse tinten, kiwi op eikgebint'
+          imgSrc='https://images.unsplash.com/photo-1554266183-2696fdafe3ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80'
+        />
+      </div>
+    </div>
+  </div>
+</section>
