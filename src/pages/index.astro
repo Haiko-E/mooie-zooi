@@ -1,26 +1,17 @@
 ---
 import About from '../components/About.astro';
-import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import Impressie from '../components/Impressie.astro';
-import Meesterlijk from '../components/Meesterlijk.astro';
+import Categories from '../components/Categories.astro';
 import Natuur from '../components/Natuur.astro';
-import Navbar from '../components/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title='Mooie Zooi Homepage'>
-  <div class='max-w-[1280px] rounded-md'>
-    <header>
-      <Navbar />
-    </header>
-    <main>
-      <Hero />
-      <About />
-      <Meesterlijk />
-      <Impressie />
-      <Natuur />
-    </main>
-    <Footer />
-  </div>
+  <main>
+    <Hero />
+    <About />
+    <Categories />
+    <Impressie />
+  </main>
 </Layout>

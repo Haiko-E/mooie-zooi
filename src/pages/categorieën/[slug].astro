@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getSlugs } from '../../utils/sanity';
+
+export async function getStaticPaths() {
+  const slugs = await getSlugs('category');
+  return slugs.map((slug) => {
+    return {
+      params: slug,
+    };
+  });
+}
+
+const { slug } = Astro.params;
+---
+
+<Layout title='slug'>
+  <h1 class='h-[600px]'>Welcome op de categorie pagina{slug}</h1>
+</Layout>

@@ -1,6 +1,13 @@
 ---
 import Button from './Button.astro';
 import Card from './Card.astro';
+
+import { getPage, urlForImage } from '../utils/sanity';
+import { getComponent } from '../utils/helpers';
+
+const page = await getPage('Contact');
+const { subtitle } = getComponent('subComponent', page.components);
+const { text } = getComponent('textComponent', page.components);
 ---
 
 <footer id='contact'>
@@ -9,15 +16,16 @@ import Card from './Card.astro';
   >
     <div class='lg:px-6 py-6'>
       <h2 class='mb-4 text-6xl font-bold'>
-        Contact <br />
-        <span class='text-2xl'>- Mooie Zooi</span>
+        {page.title}
+        <br />
+        <span class='text-2xl'>{subtitle}</span>
       </h2>
       <address class='not-italic text-xl'>
         <p>Kerkstraat 14</p>
         <p>7064 BH Silvolde</p>
         <a class='block' href='https://mooiezooi.nl'>www.mooiezooi.nl</a>
-        <a href='mailto:info@mooiezooi.nl'>info@mooiezooi.nl</a>
-        <a href='tel:+31612888750'>Tel: 06-12888750</a>
+        <a class='block' href='mailto:info@mooiezooi.nl'>info@mooiezooi.nl</a>
+        <a class='block' href='tel:+31612888750'>Tel: 06-12888750</a>
       </address>
       <blockquote class='text-lg py-6'>
         "Welcome in de wereld van herkening"

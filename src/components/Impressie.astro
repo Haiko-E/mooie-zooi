@@ -1,5 +1,10 @@
 ---
 import Card from './Card.astro';
+import { getPage, urlForImage } from '../utils/sanity';
+import { getComponent } from '../utils/helpers';
+
+const page = await getPage('Impressie tuinkamer');
+const { subtitle } = getComponent('subComponent', page.components);
 ---
 
 <section id='impressie'>
@@ -9,8 +14,9 @@ import Card from './Card.astro';
     <div class=''>
       <div class='lg:px-6 py-6'>
         <h2 class='mb-4 text-2xl font-bold'>
-          Impressie <br />
-          <span class='text-xl'>- fotografie</span>
+          {page.title}
+          <br />
+          <span class='text-xl'>{subtitle}</span>
         </h2>
       </div>
       <div class='grid gap-6 w-full grid-cols-1 md:grid-cols-3'>

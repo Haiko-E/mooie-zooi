@@ -1,0 +1,41 @@
+---
+import Product from './Product.astro';
+import Card from './Card.astro';
+import { getAllCategories, getAllProducts } from '../utils/sanity';
+import { urlForImage } from '../utils/sanity';
+const categories = await getAllCategories();
+const results = await getAllProducts();
+---
+
+<section id='categorieën'>
+  <div
+    class='block p-8 bg-white text-amber-950 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
+  >
+    <div class=''>
+      <div class='lg:px-6 py-6'>
+        <h2 class='mb-4 text-2xl font-bold'>
+          Categorien <br />
+          <span class='text-xl'>zoek, door alle mooie zooi, op categorie</span>
+        </h2>
+      </div>
+      <div class='grid gap-6 w-full grid-cols-1 md:grid-cols-3'>
+        {
+          categories.map((cat) => {
+            return (
+              <Card
+                title={cat.title}
+                description={cat.description}
+                imgSrc={urlForImage(cat.image)
+                  .format('webp')
+                  .height(400)
+                  .width(400)
+                  .url()}
+                slug={cat.slug.current}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,18 +1,23 @@
 ---
 import { Image } from 'astro:assets';
-const { imgSrc, title, description } = Astro.props;
+const { imgSrc, title, description, slug } = Astro.props;
 ---
 
-<div class=''>
-  <Image
-    class='h-[400px] w-full object-cover'
-    src={imgSrc}
-    alt={title}
-    width={600}
-    height={800}
-  />
+<a
+  href={slug ? `categorieën/${slug}` : '#'}
+  class={slug ? 'cursor-pointer' : 'cursor-default pointer-events-none'}
+>
+  <div class='overflow-hidden'>
+    <Image
+      class='transition duration-300 ease-in-out hover:scale-110 h-[400px] w-full object-cover'
+      src={imgSrc}
+      alt={title}
+      width={600}
+      height={800}
+    />
+  </div>
   <h3 class='pt-2 text-inherit text-lg font-bold'>{title}</h3>
   <p>
     {description}
   </p>
-</div>
+</a>

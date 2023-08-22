@@ -10,11 +10,23 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^2.2.2",
     "@astrojs/tailwind": "^4.0.0",
     "@fontsource/roboto-mono": "^5.0.5",
+    "@portabletext/react": "^3.0.4",
+    "@sanity/image-url": "^1.0.2",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
     "astro": "^2.8.3",
+    "astro-portabletext": "^0.9.1",
+    "astro-sanity": "^1.1.7",
     "lucide": "^0.263.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.3.3",
     "tw-elements": "^1.0.0-beta2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9"
   }
 }
