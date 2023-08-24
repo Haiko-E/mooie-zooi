@@ -8,6 +8,10 @@ import { getComponent } from '../utils/helpers';
 const page = await getPage('Contact');
 const { subtitle } = getComponent('subComponent', page.components);
 const { text } = getComponent('textComponent', page.components);
+const { city, website, email, street, telephone, zip } = getComponent(
+  'adressComponent',
+  page.components
+);
 ---
 
 <footer id='contact'>
@@ -21,11 +25,30 @@ const { text } = getComponent('textComponent', page.components);
         <span class='text-2xl'>{subtitle}</span>
       </h2>
       <address class='not-italic text-xl'>
-        <p>Kerkstraat 14</p>
-        <p>7064 BH Silvolde</p>
-        <a class='block' href='https://mooiezooi.nl'>www.mooiezooi.nl</a>
-        <a class='block' href='mailto:info@mooiezooi.nl'>info@mooiezooi.nl</a>
-        <a class='block' href='tel:+31612888750'>Tel: 06-12888750</a>
+        {street && <p>{street}</p>}
+        {zip && <p>{zip}</p>}
+        {city && <p>{city}</p>}
+        {
+          website && (
+            <a class='block' href={`https://${website}`}>
+              {website}
+            </a>
+          )
+        }
+        {
+          email && (
+            <a class='block' href={`mailto:${email}`}>
+              {email}
+            </a>
+          )
+        }
+        {
+          telephone && (
+            <a class='block' href={`tel:${telephone}`}>
+              Tel: {telephone}
+            </a>
+          )
+        }
       </address>
       <blockquote class='text-lg py-6'>
         "Welcome in de wereld van herkening"

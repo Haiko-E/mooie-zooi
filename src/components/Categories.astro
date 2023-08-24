@@ -18,24 +18,32 @@ const results = await getAllProducts();
           <span class='text-xl'>zoek, door alle mooie zooi, op categorie</span>
         </h2>
       </div>
-      <div class='grid gap-6 w-full grid-cols-1 md:grid-cols-3'>
+
+      <swiper-container space-between='30' slides-per-view='3' navigation='true'>
         {
           categories.map((cat) => {
             return (
-              <Card
-                title={cat.title}
-                description={cat.description}
-                imgSrc={urlForImage(cat.image)
-                  .format('webp')
-                  .height(400)
-                  .width(400)
-                  .url()}
-                slug={cat.slug.current}
-              />
+              <swiper-slide>
+                <Card
+                  title={cat.title}
+                  description={cat.description}
+                  imgSrc={urlForImage(cat.image)
+                    .format('webp')
+                    .height(400)
+                    .width(400)
+                    .url()}
+                  slug={cat.slug.current}
+                />
+              </swiper-slide>
             );
           })
         }
-      </div>
+      </swiper-container>
     </div>
   </div>
 </section>
+
+<script>
+  import { register } from 'swiper/element/bundle';
+  register();
+</script>

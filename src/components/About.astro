@@ -3,6 +3,7 @@ import { getPage, urlForImage } from '../utils/sanity';
 import { getComponent } from '../utils/helpers';
 
 const page = await getPage('Over');
+
 const { subtitle } = getComponent('subComponent', page.components);
 const { image } = getComponent('imageComponent', page.components);
 const { text } = getComponent('textComponent', page.components);
