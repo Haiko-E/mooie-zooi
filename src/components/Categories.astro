@@ -9,13 +9,15 @@ const results = await getAllProducts();
 
 <section id='categorieën'>
   <div
-    class='block p-8 bg-white text-amber-950 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
+    class='block py-8 md:p-8 bg-white text-amber-950 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
   >
     <div class=''>
-      <div class='lg:px-6 py-6'>
+      <div class='px-6 py-6'>
         <h2 class='mb-4 text-2xl font-bold'>
           Categorien <br />
-          <span class='text-xl'>zoek, door alle mooie zooi, op categorie</span>
+          <span class='text-lg md:text-xl'
+            >zoek, door alle mooie zooi, op categorie</span
+          >
         </h2>
       </div>
 
@@ -51,13 +53,22 @@ const results = await getAllProducts();
   import Splide from '@splidejs/splide';
 
   new Splide('.splide', {
-    classes: {
-      arrow: 'splide__arrow bg-white',
-    },
+    pagination: false,
     arrows: true,
     gap: 20,
     perPage: 3,
     perMove: 1,
+    breakpoints: {
+      960: {
+        perPage: 2,
+      },
+      640: {
+        perPage: 1,
+      },
+    },
+    classes: {
+      arrow: 'splide__arrow bg-white',
+    },
   }).mount();
   import '@splidejs/splide/css';
 </script>

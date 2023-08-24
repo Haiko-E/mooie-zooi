@@ -1,0 +1,41 @@
+<div class='splide' role='group' aria-label='carousel-heading'>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      <div class='splide__slide'>
+        <p class='w-[400px] h-[400px] bg-slate-400'>HELLO</p>
+      </div>
+      <div class='splide__slide'>
+        <p class='w-[400px] h-[400px] bg-slate-400'>HELLO</p>
+      </div>
+      <div class='splide__slide'>
+        <p class='w-[400px] h-[400px] bg-slate-400'>HELLO</p>
+      </div>
+      <div class='splide__slide'>
+        <p class='h-[400px] bg-slate-400'>HELLO</p>
+      </div>
+    </ul>
+  </div>
+</div>
+<script>
+  import Splide from '@splidejs/splide';
+  import '@splidejs/splide/css';
+  new Splide('.splide', {
+    classes: {
+      arrow: 'splide__arrow bg-white',
+    },
+    pagination: false,
+    isNavigation: true,
+    arrows: true,
+    gap: 20,
+    perPage: 3,
+    perMove: 1,
+    breakpoints: {
+      960: {
+        perPage: 2,
+      },
+      640: {
+        perPage: 1,
+      },
+    },
+  }).mount();
+</script>
