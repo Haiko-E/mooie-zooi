@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         header: ['Roboto Mono'],
+        body: ['Mulish', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         brocant: {

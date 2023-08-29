@@ -1,0 +1,17 @@
+---
+import { getAllProducts, getProductById } from '../../utils/sanity';
+
+export async function getStaticPaths() {
+  const products = await getAllProducts();
+  return products.map((prod) => {
+    return {
+      params: { id: prod._id },
+      props: prod,
+    };
+  });
+}
+
+const product = Astro.props;
+---
+
+<h1>{product.title}</h1>

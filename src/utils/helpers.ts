@@ -1,3 +1,5 @@
+import { urlForImage } from './sanity';
+
 export type Type =
   | 'subComponent'
   | 'imageComponent'
@@ -44,4 +46,28 @@ export type Component<T> =
 export function getComponent<T extends Type>(_type: T, components: (Image | Text | Sub | Address)[]) {
   const result = components.find((comp) => comp._type === _type);
   return result as Component<T>;
+}
+
+export function getComponents(components: any[]): string[] {
+  const componentsArray = components.map((comp) => {
+    switch (comp._type) {
+      case 'subComponent':
+        return `<h2 class='mb-4 text-6xl font-bold'>${comp.subtitle}</h2>`;
+    }
+    switch (comp._type) {
+      case 'textComponent':
+        return `<p class='mb-6 dark:text-neutral-300'>${comp.text}</p>`;
+    }
+    switch (comp._type) {
+      case 'imageComponent':
+        return `<img src='${urlForImage(comp.image)
+          .format('webp')
+          .height(400)
+          .url()}'
+        alt='test'
+        class='h-[400px] w-full object-cover lg:w-full lg:h-auto'
+      />`;
+    }
+  });
+  return componentsArray;
 }
