@@ -17,7 +17,7 @@ const { product } = Astro.props;
       src={urlForImage(product.image).width(600).height(600).format('webp').url()}
       alt={product.image.asset.altText || product.title}
     />
-    <a href={`../products/${product._id}`}>
+    <a href={`/products/${product._id}`}>
       <div
         class='absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100'
       >
