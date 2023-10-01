@@ -1,16 +1,12 @@
 ---
-import { getPage, urlForImage } from '../utils/sanity';
-import { getComponent } from '../utils/helpers';
-
-const page = await getPage('Mooie Zooi');
-const { subtitle } = getComponent('subComponent', page.components);
-const { image } = getComponent('imageComponent', page.components);
+import { urlForImage } from '../utils/sanity';
+const { node } = Astro.props;
 ---
 
 <section
   class='relative overflow-hidden bg-cover bg-center bg-no-repeat p-12 text-center'
   style=`
-      background-image: url('${urlForImage(image).format('webp').url()}');
+      background-image: url('${urlForImage(node.image).format('webp').width(800).url()}');
       height: 600px;
     `
 >
@@ -20,19 +16,22 @@ const { image } = getComponent('imageComponent', page.components);
   >
     <div class='flex h-full items-center justify-center'>
       <div class='text-white'>
-        <h1 class='mb-4 text-4xl font-semibold'>{page.title}</h1>
-        <h2 class='mb-6 text-xl font-semibold'>{subtitle}</h2>
-        <button
-          type='button'
-          class='rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10'
-          data-te-ripple-init
-          data-te-ripple-color='light'
-        >
-          Afspraak maken
-        </button>
+        <h1 class='mb-4 text-4xl font-semibold'>{node.title}</h1>
+        <h2 class='mb-6 text-xl font-semibold'>{node.subTitle}</h2>
+
+        {
+          node.showButton && (
+            <button
+              type='button'
+              class='rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10'
+              data-te-ripple-init
+              data-te-ripple-color='light'
+            >
+              Afspraak maken
+            </button>
+          )
+        }
       </div>
     </div>
   </div>
 </section>
-
-<script type='module'></script>

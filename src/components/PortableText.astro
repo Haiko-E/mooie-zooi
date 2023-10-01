@@ -1,0 +1,15 @@
+---
+import { PortableText as PortableTextInternal } from 'astro-portabletext';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import Categories from './Categories.astro';
+const components = {
+  type: {
+    heroSection: Hero,
+    aboutSection: About,
+    categorySlider: Categories,
+  },
+};
+---
+
+<PortableTextInternal value={Astro.props.value} components={components} />

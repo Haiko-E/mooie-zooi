@@ -1,12 +1,6 @@
 ---
-import { getPage, urlForImage } from '../utils/sanity';
-import { getComponent } from '../utils/helpers';
-
-const page = await getPage('Over');
-
-const { subtitle } = getComponent('subComponent', page.components);
-const { image } = getComponent('imageComponent', page.components);
-const { text } = getComponent('textComponent', page.components);
+import { urlForImage } from '../utils/sanity';
+const { node } = Astro.props;
 ---
 
 <!-- Section: Design Block -->
@@ -17,21 +11,21 @@ const { text } = getComponent('textComponent', page.components);
     <div class='flex flex-wrap'>
       <div class='w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-6/12'>
         <img
-          src={urlForImage(image).format('webp').height(400).url()}
-          alt={page.title}
+          src={urlForImage(node.image).format('webp').height(400).url()}
+          alt={node.title}
           class='h-[400px] w-full object-cover lg:w-full lg:h-auto'
         />
       </div>
       <div class='w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-6/12'>
         <div class='py-6 lg:px-12 md:py-12'>
           <h2 class='mb-4 text-6xl font-bold'>
-            {page.title}
+            {node.title}
             <br />
-            <span class='text-2xl'>{subtitle}</span>
+            <span class='text-2xl'>{node.subTitle}</span>
           </h2>
 
           <p class='mb-6 dark:text-neutral-300'>
-            {text}
+            {node.description}
           </p>
         </div>
       </div>

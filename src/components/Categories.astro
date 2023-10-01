@@ -1,23 +1,27 @@
 ---
-import Product from './Product.astro';
 import Card from './Card.astro';
-import { getAllCategories, getAllProducts } from '../utils/sanity';
+import { getAllCategories } from '../utils/sanity';
 import { urlForImage } from '../utils/sanity';
 const categories = await getAllCategories();
-const results = await getAllProducts();
+const { node } = Astro.props;
 ---
 
-<section id='categorieën'>
+<section class='relative' id='categorieën'>
   <div
     class='block py-8 md:p-8 bg-white text-amber-950 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
   >
     <div class=''>
       <div class='px-6 py-6'>
         <h2 class='mb-4 text-2xl font-bold'>
-          Categorien <br />
-          <span class='text-lg md:text-xl'
-            >zoek, door alle mooie zooi, op categorie</span
-          >
+          {node.title}
+          <br />
+          {
+            node.subtitle && (
+              <span class='text-lg md:text-xl'>
+                zoek, door alle mooie zooi, op categorie
+              </span>
+            )
+          }
         </h2>
       </div>
 

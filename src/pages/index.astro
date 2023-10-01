@@ -1,18 +1,18 @@
 ---
-import About from '../components/About.astro';
-import Hero from '../components/Hero.astro';
-import Impressie from '../components/Impressie.astro';
-import Categories from '../components/Categories.astro';
 import Layout from '../layouts/Layout.astro';
-import Appointment from '../components/Appointment.astro';
+import { getPage } from '../utils/sanity';
+import PortableText from '../components/PortableText.astro';
+const homePage = await getPage('Homepagina');
 ---
 
 <Layout title='Mooie Zooi Homepage'>
   <main>
-    <Hero />
-    <About />
-    <Categories />
-    <Impressie />
-    <!-- <Appointment /> -->
+    {
+      homePage.components.map((page) => {
+        return <PortableText value={page} />;
+      })
+    }
+    <!-- <Impressie /> 
+     <Appointment />  -->
   </main>
 </Layout>
