@@ -5,7 +5,6 @@ import { loadEnv } from 'vite';
 import sanity from 'astro-sanity';
 
 const { SANITY_DATASET } = loadEnv(process.env.NODE_ENV, process.cwd(), '');
-
 // https://astro.build/config
 export default defineConfig({
   experimental: {
