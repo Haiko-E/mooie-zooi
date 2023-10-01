@@ -14,7 +14,7 @@ export default defineConfig({
     react(),
     sanity({
       projectId: 'gwghkra8',
-      dataset: 'production',
+      dataset: 'develop',
       apiVersion: '2023-08-17',
       useCdn: true,
     }),
