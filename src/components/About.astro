@@ -11,7 +11,7 @@ const { node } = Astro.props;
     <div class='flex flex-wrap'>
       <div class='w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-6/12'>
         <img
-          src={urlForImage(node.image).format('webp').height(400).url()}
+          src={urlForImage(node.image).format('webp').height(500).url()}
           alt={node.title}
           class='h-[400px] w-full object-cover lg:w-full lg:h-auto'
         />

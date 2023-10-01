@@ -1,0 +1,64 @@
+---
+import { urlForImage } from '../utils/sanity';
+const { node } = Astro.props;
+---
+
+<section id='contact'>
+  <div
+    class='grid grid-cols-1 md:grid-cols-2 text-center md:text-left p-8 bg-brocant-300 text-amber-950 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700'
+  >
+    <div class='lg:px-6 py-6'>
+      <h2 class='mb-4 text-6xl font-bold'>
+        {node.title}
+        <br />
+        {node.subtitle && <span class='text-2xl'>{node.subtitle}</span>}
+      </h2>
+      <address class='not-italic text-xl'>
+        {node.street && <p>{node.street}</p>}
+        {node.zip && <p>{node.zip}</p>}
+        <p>{node.city}</p>
+        {
+          node.email && (
+            <a class='block' href={`mailto:${node.email}`}>
+              {node.email}
+            </a>
+          )
+        }
+        {
+          node.website && (
+            <a class='block' href={`https://${node.website}`}>
+              {node.website}
+            </a>
+          )
+        }
+        {
+          node.telephone && (
+            <a class='block' href={`tel:${node.telephone}`}>
+              Tel: {node.telephone}
+            </a>
+          )
+        }
+      </address>
+      <blockquote class='text-lg py-6'>
+        "Welkom in de wereld van herkenning"
+      </blockquote>
+
+      <p class='text-xl pb-6'>laten we hergebruiken</p>
+
+      <button
+        type='button'
+        class='rounded border-2 border-amber-950 text-inherit px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-amber-950 hover:bg-opacity-10'
+        data-te-ripple-init
+        data-te-ripple-color='light'
+      >
+        Afspraak maken
+      </button>
+    </div>
+
+    <img
+      class='hidden w-full h-[500px] md:object-cover md:block'
+      src={urlForImage(node.image).format('webp').height(500).url()}
+      alt={node.title}
+    />
+  </div>
+</section>
