@@ -2,10 +2,12 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import { loadEnv } from 'vite';
-import sanity from 'astro-sanity';
+// import sanity from 'astro-sanity';
 import vue from '@astrojs/vue';
-
+import sanity from '@sanity/astro';
+import netlify from '@astrojs/netlify/functions';
 const { SANITY_DATASET } = loadEnv(process.env.NODE_ENV, process.cwd(), '');
+
 // https://astro.build/config
 export default defineConfig({
   experimental: {
@@ -22,4 +24,6 @@ export default defineConfig({
       useCdn: true,
     }),
   ],
+  // output: 'hybrid',
+  // adapter: netlify(),
 });
