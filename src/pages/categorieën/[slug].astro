@@ -2,7 +2,7 @@
 import Product from '../../components/Product.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getSlugs, getProductsByCategory } from '../../utils/sanity';
-import CategoriePageVue from '/src/components-vue/CategoriePageVue.vue';
+import CategoriePageVue from '../../components-vue/CategoriePageVue.vue';
 
 export async function getStaticPaths() {
   const slugs = await getSlugs('category');
