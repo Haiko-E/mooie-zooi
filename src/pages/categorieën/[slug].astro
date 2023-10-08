@@ -2,6 +2,7 @@
 import Product from '../../components/Product.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getSlugs, getProductsByCategory } from '../../utils/sanity';
+import CategoriePageVue from '/src/components-vue/CategoriePageVue.vue';
 
 export async function getStaticPaths() {
   const slugs = await getSlugs('category');
@@ -16,19 +17,28 @@ const { slug } = Astro.params;
 const products = await getProductsByCategory(slug);
 ---
 
-<Layout title='slug'>
-  <section class='my-20'>
-    <h1 class='my-8 text-5xl font-bold text-amber-950 text-center'>
+<Layout title={slug}>
+  <section class='p-4'>
+    <h1 class='my-8 text-2xl font-bold text-amber-950'>
       {slug.toLocaleUpperCase()}
     </h1>
-    <div
-      class='flex flex-col sm:grid gap-5 m-4 sm:grid-cols-2 grid-rows-1 md:grid-cols-3'
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quaerat vel
+      accusamus. Illo reiciendis animi ea cupiditate beatae quam praesentium et, vel
+      eveniet, totam eaque necessitatibus modi, eos perferendis numquam. Atque quos
+      officia placeat dolorem a praesentium molestiae labore. Quasi voluptatum
+    </p>
+
+    <CategoriePageVue products={products} client:only />
+
+    <!-- <div
+      class='flex flex-col sm:grid gap-5 sm:grid-cols-2 grid-rows-1 md:grid-cols-3'
     >
       {
         products.map((product) => {
           return <Product product={product} />;
         })
       }
-    </div>
+    </div> -->
   </section>
 </Layout>
