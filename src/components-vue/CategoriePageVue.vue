@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { Dropdown, Ripple, initTE } from 'tw-elements';
 import ProductVue from './ProductVue.vue';
 
@@ -11,11 +11,19 @@ const { products } = defineProps({ products: Array });
 const selected = ref('Sorteer op');
 const sortedBy = ref(products);
 
-const priceLowHigh = computed(() => products.sort((a, b) => a.price - b.price));
-const priceHighLow = computed(() => products.sort((a, b) => b.price - a.price));
-const createdAt = computed(() =>
-  products.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt))
+const priceLowHigh = computed(() =>
+  sortedBy.value.sort((a, b) => a.price - b.price)
 );
+const priceHighLow = computed(() =>
+  sortedBy.value.sort((a, b) => b.price - a.price)
+);
+const createdAt = computed(() =>
+  sortedBy.value.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt))
+);
+
+watch(selected, () => {
+  console.log(sortedBy.value);
+});
 
 function handleClick(index) {
   switch (index) {

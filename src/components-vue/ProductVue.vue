@@ -3,7 +3,6 @@ import { urlForImage } from '../utils/sanity';
 import { PortableText } from '@portabletext/vue';
 
 const { product } = defineProps({ product: Object });
-console.log(product.title);
 </script>
 
 <template>
